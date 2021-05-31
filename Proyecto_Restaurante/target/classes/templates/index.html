@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="Página del Restaurante Bienmesabe">
+<meta name="author" content="Grupo 1">
+<!-- <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico"> -->
+<title>BIENMESABE</title>
+<!-- <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/album/"> -->
+<!-- Bootstrap core CSS -->
+<!-- <link href="../static/css/bootstrap.css" th:rel="stylesheet" th:href="@{/css/bootstrap.css}"/>-->
+<!-- <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">-->
+<link
+	th:href="@{https://fonts.googleapis.com/css2?family=Rancho&display=swap}"
+	th:rel="stylesheet">
+<link th:rel="stylesheet" th:href="@{/dist/css/bootstrap.min.css}" />
+<!-- Custom styles for this template -->
+<!--     <link href="album.css" rel="stylesheet"> -->
+</head>
+
+<body>
+
+	<header>
+		<div class="collapse" id="navbarHeader" style="background: burlywood;">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-8 col-md-7 py-4">
+						<h4 class="text-white">Te informo</h4>
+						<p class="text-white">Estás en la página principal, donde
+							podras acceder a las siguientes partes: PLATOS - INGREDIENTES -
+							CATEGORIAS</p>
+					</div>
+					<div class="col-sm-4 offset-md-1 py-4">
+						<h4 class="text-white">Contacto</h4>
+						<ul class="list-unstyled">
+							<li><a th:href="@{https://twitter.com/}" target="_blank"
+								class="text-white">Siguenos en Twitter</a></li>
+							<li><a th:href="@{https://www.facebook.com/}"
+								target="_blank" class="text-white">Danos me gusta en
+									Facebook</a></li>
+							<li><a
+								th:href="@{mailto:bienmesabe@gmail.com?subject=Contactar}"
+								class="text-white">Envianos un correo</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="navbar navbar-light bg-light box-shadow">
+			<div class="container d-flex justify-content-between"
+				style="background: burlywood;">
+				<a href="../../" class="navbar-brand d-flex align-items-center">
+					<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-house-fill" fill="currentColor"xmlns="http://www.w3.org/2000/svg">
+			  			<path fill-rule="evenodd"	d="M8 3.293l6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6zm5-.793V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z" />
+			  			<path fill-rule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z" />
+					</svg> <strong>Inicio</strong>
+				</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse"
+					data-target="#navbarHeader" aria-controls="navbarHeader"
+					aria-expanded="false" aria-label="Toggle navigation"
+					style="background: bisque;">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+			</div>
+		</div>
+	</header>
+
+	<main role="main">
+
+		<section class="jumbotron text-center"
+			style="background: antiquewhite;">
+			<div class="container">
+				<h1 class="jumbotron-heading "
+					style="font-family: 'Rancho', cursive;">Restaurante
+					"BIENMESABE"</h1>
+				<p class="lead text-muted">Ven a comer a nuestro restaurante y
+					comprobarás que tenemos una carta llena de platos espectaculares
+					que dejaran con ganas de volver de nuevo</p>
+				<p>
+					<a th:href="@{plato}" class="btn btn-secondary my-2">Platos</a> 
+					<a th:href="@{ingrediente}" class="btn btn-secondary my-2">Ingredientes</a> 
+					<a th:href="@{categoria}" class="btn btn-secondary my-2">Categorias</a>
+				</p>
+			</div>
+			<div>
+				<h2 style="font-family: 'Rancho', cursive">
+					<br>Nuestro riquísimo pollo asado con patatas fritas
+				</h2>
+				<img class="img-thumbnail rounded" style="max-width: 100%"
+					th:src="@{/img/polloasado.png}" th:alt="${polloasado}" />
+			</div>
+			<div>
+				<h2 style="font-family: 'Rancho', cursive">
+					<br>Nuestro crujiente cochinillo famoso en el mundo entero
+				</h2>
+				<img class="img-thumbnail rounded" style="max-width: 100%"
+					th:src="@{/img/cochinillo.png}" th:alt="${cochinillo}" />
+			</div>
+		</section>
+
+	</main>
+
+	<footer class="text-muted">
+		<div class="container">
+			<p class="float-right">
+				<a href="#">Volver arriba</a>
+			</p>
+			<p>Esta página es &copy; de BIENMESABE, aunque la dejo con el
+				código abierto!</p>
+			<p>
+				Gracias por visitarnos<a href="../../"> Visita nuestra página</a>
+			</p>
+		</div>
+	</footer>
+
+	<!-- Bootstrap core JavaScript
+    ================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+		crossorigin="anonymous"></script>
+	<!--     <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script> -->
+	<!--     <script src="../../assets/js/vendor/popper.min.js"></script> -->
+	<script src="../../dist/js/bootstrap.min.js"></script>
+	<!--     <script src="../../assets/js/vendor/holder.min.js"></script> -->
+</body>
+</html>
