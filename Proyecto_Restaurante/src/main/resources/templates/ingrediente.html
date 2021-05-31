@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>Ingredientes</title>
+<link th:rel="stylesheet" th:href="@{/dist/css/bootstrap.min.css}" />
+<!-- <link href="../static/css/bootstrap.css" th:rel="stylesheet"
+ th:href="@{/css/bootstrap.css}"/> -->
+</head>
+
+<body style="margin: 20px;">
+	<div class="container">
+
+		<div>
+			<a href="/saveIngrediente/0" class="btn btn-primary">Agregar Ingredientes</a>
+			<a th:href="@{index}" class="btn btn-primary my-2">Volver</a>
+		</div>
+		<div th:switch="${list}">
+			<h2 th:case="null">No hay Ingredientes</h2>
+			<div th:case="*" style="margin-top: 10px;">
+			
+				<h2>Listado de Ingredientes en Almacen</h2>
+				<table class="table">
+					<thead>
+						<tr>
+							<th>Nombre</th>
+							<th>Stock Almacén</th>
+							<th>Unidad Medida</th>
+							<th></th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="ingrediente: ${list}">
+							<td th:text="${ingrediente.nombre_ing}"></td>
+							<td th:text="${ingrediente.stock_almacen}"></td>					
+							<td th:text="${ingrediente.unidad_med}"></td>
+
+							<td><a class="btn btn-danger btn-xs"
+								th:href="@{/deleteIngrediente/{id}(id=${ingrediente.id})}"
+								th:text="'Eliminar'"
+								onclick="return confirm('¿Estas seguro que quieres eliminar?');"></a></td>
+							<td><a class="btn btn-warning btn-xs"
+								th:href="@{/saveIngrediente/{id}(id=${ingrediente.id})}">Modificar</a></td>
+						</tr>
+					</tbody>
+					<td ><a th:href="@{index}" class="btn btn-primary my-2">Volver</a></td>
+				</table>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

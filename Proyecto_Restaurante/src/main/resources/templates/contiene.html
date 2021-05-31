@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>Ficha del plato</title>
+<link th:rel="stylesheet" th:href="@{/dist/css/bootstrap.min.css}" />
+<!-- <link href="../static/css/bootstrap.css" th:rel="stylesheet"
+ th:href="@{/css/bootstrap.css}"/> -->
+</head>
+	
+<body style="margin: 20px;">
+	<div class="container">
+<!-- 		<div th:case="*" style="margin-top: 10px;"> -->
+			<h2>Ingredientes para un plato</h2>
+				<table class="table">
+					<thead>
+						<tr>
+							<th>Contenido de un plato</th>
+							<th></th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody>
+					<p>Aquí tienen que salir los ingredientes</p>
+<!-- 						<tr th:each="ficha: ${list}"> -->
+<!-- 							<td th:text="${ficha.nombre_ing}"></td> -->
+<!-- 						</tr>		 -->
+					</tbody>
+					<td ><a th:href="@{plato}" class="btn btn-primary my-2">Volver</a></td>
+		</div>
+	</div>
+</body>
+</html>

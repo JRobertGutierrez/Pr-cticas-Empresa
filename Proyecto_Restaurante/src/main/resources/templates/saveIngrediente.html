@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Ingredientes</title>
+<link th:rel="stylesheet" th:href="@{/dist/css/bootstrap.min.css}"/>
+
+</head>
+<body>
+	<div class="container">
+	<h2>Nuevo Ingrediente</h2>
+		<form action="#" th:action="@{/saveIngrediente}" th:object="${ingrediente}" method="post">
+			<div class="form-group">
+				<label for="nombre">Nombre</label>
+				<input type="text" class="form-control" id="nombre" th:field="*{nombre_ing}" name="nombre" placeholder="Nombre"></input>
+			</div>
+			<input type="hidden" th:field="*{id}" name="id" id="id"/>
+			<div class="form-group">
+				<label for="almacen">Stock Almacén</label>
+				<input type="text" class="form-control" id="almacen" th:field="*{stock_almacen}" name="almacen" placeholder="Introduce cantidad"></input>
+			</div>
+			<div class="form-group">
+				<label for="unidades">Unidad de medida</label>
+				<input type="text" class="form-control" id="unidades" th:field="*{unidad_med}" name="unidades" placeholder="Introduce peso o unidades"></input>
+			</div>
+			
+			<button type="submit" class="btn btn-success">Guardar</button>
+			<a th:href="@{../ingrediente}" class="btn btn-primary my-2">Volver</a>
+		</form>
+	</div>
+
+</body>
+</html>

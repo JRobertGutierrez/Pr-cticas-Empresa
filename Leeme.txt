@@ -1,0 +1,70 @@
+Antes de cargar el archivo sql en nuestra base de datos, 
+crearemos una base de datos llamada restaurante ya que en el archivo properties así lo tengo
+al igual que el usuario es root y la contraseña esta vacía (he usado xampp).
+
+Debo decir que para las pruebas solo he añadido ingredientes de los dos primeros platos,
+es decir de la id 1 que es Cocido madrileño y de la id 2 que son Aros de cebolla.
+
+Aquí pongo una consulta que he probado para poder mostrar la ficha de cada plato o producto:
+
+Dependiendo de la id que elegimos nos devuelve unos ingredientes u otros.
+
+Cocido Madrileño Id1
+Ingredientes
+Para 6 personas
+
+    Garbanzos 300 g
+    Morcillo 400 g
+    Tocino 200 g
+    Hueso de rodilla de ternera 2
+    Huesos de espinazo de cerdo salado 3
+    Hueso de caña con tuétano 3
+    Chorizo fresco 3
+    Fideos cabellín o gruesos 150 g
+    Gallina 150 g
+    Patatas 3
+    Zanahoria 2 
+
+
+Aros de Cebolla Id2
+Ingredientes
+Para 4 personas
+
+    Cebolla cortada en aros 1
+    Harina de trigo 150 g
+    Huevo 1
+    Leche 200 ml
+    Pan rallado
+    Levadura química 1 cucharadita
+    Sal al gusto
+
+
+CON ESTA CONSULTA MUESTRO DISTINTA INFORMACIÓN DE SALIDA CON VARIOS CAMPOS:
+
+select p.nombrepla, i.nombre_ing, c.cantidad_usada, c.unid_med from plato_model p
+join contiene_model c on p.id_plato=c.id_plato
+join ingrediente_model i on c.id_ingrediente=i.id_ingrediente 
+where c.id_plato LIKE 1
+
+
+CON ESTA OTRA SOLO EL INGREDIENTE PARA MOSTRAR LA FICHA DE UN PRODUCTO
+
+select i.nombre_ing from plato_model p
+join contiene_model c on p.id_plato=c.id_plato
+join ingrediente_model i on c.id_ingrediente=i.id_ingrediente 
+where c.id_plato LIKE 1
+
+
+
+CUANDO ARRANCAMOS XAMPP CON LOS SERVICIOS APACHE Y MYSQL
+TAMBIEN ARRANCAMOS EL SERVIDOR DESDE ECLIPSE CON NUESTRO PROYECTO
+
+Ya que he puesto el puerto 9090 tenemos que poner en nuestro navegador lo siguiente:
+
+http://localhost:9090
+
+Después ponemos como nombre de usuario user y copiamos la contraseña que nos sale en la consola de eclipse,
+así entraremos a la página principal donde podremos navegar por Platos, Ingredientes y categorias.
+
+Ahora podemos probar toda la funcionalidad sin ningun error, salvo que algunos botones como son la ficha de producto de cada plato
+y los enlaces a las distintas categorias dentro de la sección platos no estan funcionales todavía.

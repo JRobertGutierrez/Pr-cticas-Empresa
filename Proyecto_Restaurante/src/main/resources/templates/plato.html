@@ -1,0 +1,134 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>Platos</title>
+<link th:rel="stylesheet" th:href="@{/dist/css/bootstrap.min.css}" />
+<!-- <link href="../static/css/bootstrap.css" th:rel="stylesheet"
+ th:href="@{/css/bootstrap.css}"/> -->
+</head>
+
+<body>
+	<div class="container" style="padding:50px">
+
+		
+		
+		<section class="ftco-section">
+      <div class="container">
+      	<div class="row justify-content-center mb-5 pb-3">
+          <div class="col-md-7 heading-section text-center ftco-animate">
+          	<span class="subheading">Restaurante BIENMESABE</span>
+            <h2 class="mb-4">Un espacio para toda la familia</h2>
+            <div>
+		
+			<a href="/savePlato/0" class="btn btn-primary">Agregar Plato</a>
+			<a th:href="@{index}" class="btn btn-primary my-2">Volver</a>
+		</div>
+          </div>
+        </div>  
+        
+        <div class="row d-flex">
+          <div class="col-md pr-md-1 d-flex align-self-stretch ftco-animate">
+            <div class="media block-6 services py-4 d-block text-center">
+              <div class="d-flex justify-content-center">
+              	<div class="icon d-flex align-items-center justify-content-center">
+              		<span class="flaticon-reception-bell"></span>
+              	</div>
+              </div>
+              <div class="media-body">
+                <a href="#" class="heading mb-3">Desayuno</a>
+              </div>
+            </div>      
+          </div>
+          <div class="col-md px-md-1 d-flex align-self-stretch ftco-animate">
+            <div class="media block-6 services active py-4 d-block text-center">
+              <div class="d-flex justify-content-center">
+              	<div class="icon d-flex align-items-center justify-content-center">
+              		<span class="flaticon-serving-dish"></span>
+              	</div>
+              </div>
+              <div class="media-body">
+               <a href="#" class="heading mb-3">Almuerzo</a>
+              </div>
+            </div>    
+          </div>
+          <div class="col-md px-md-1 d-flex align-sel Searchf-stretch ftco-animate">
+            <div class="media block-6 services py-4 d-block text-center">
+              <div class="d-flex justify-content-center">
+              	<div class="icon d-flex align-items-center justify-content-center">
+              		<span class="flaticon-car"></span>
+              	</div>
+              </div>
+              <div class="media-body">
+                <a href="#" class="heading mb-3">Merienda</a>
+              </div>
+            </div>      
+          </div>
+          <div class="col-md px-md-1 d-flex align-self-stretch ftco-animate">
+            <div class="media block-6 services py-4 d-block text-center">
+              <div class="d-flex justify-content-center">
+              	<div class="icon d-flex align-items-center justify-content-center">
+              		<span class="flaticon-spa"></span>
+              	</div>
+              </div>
+              <div class="media-body">
+                <a href="#" class="heading mb-3">Cena</a>
+              </div>
+            </div>      
+          </div>
+          <div class="col-md pl-md-1 d-flex align-self-stretch ftco-animate">
+            <div class="media block-6 services py-4 d-block text-center">
+              <div class="d-flex justify-content-center">
+              	<div class="icon d-flex align-items-center justify-content-center">
+              		<span class="ion-ios-bed"></span>
+              	</div>
+              </div>
+              
+            </div>      
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+		<h2 th:if="${list.isEmpty()}">No hay platos</h2>
+		<div th:if="${!list.isEmpty()}">
+			
+
+			<div class="row">
+
+				<div th:each="plato: ${list}" class="col-md-3" style="width: 20rem; margin: 10px;">
+					<div  class="card">
+
+						<div class="card-body">
+							
+							<img
+								class="img-thumbnail rounded float-left" style="max-width: 100%"
+								th:src="@{'/img/' + ${plato.foto}}" th:alt="${plato.foto}" />
+							
+<!-- 							<img class="img-fluid rounded-circle hoverable" width="150px" -->
+<!-- 								height="150px" th:src="@{'/' + ${plato.foto}}" -->
+<!-- 								th:alt="${plato.foto}" /> -->
+							<h5 th:text="${plato.nombre}" class="card-title"></h5>
+							<p th:text="${plato.descripcion}" class="card-text"></p>
+							<p th:text="${plato.nivel}"></p>
+							<p th:text="${plato.precio}"></p>
+							
+							<a href="#" class="btn btn-primary" width="80%">Ficha del
+								Producto</a><br /> <br> 
+								
+								<a class="btn btn-danger btn-xs"
+								th:href="@{/deletePlato/{id}(id=${plato.id})}"
+								th:text="'Eliminar'"
+								onclick="return confirm('¿Estas seguro que quieres eliminar?');"></a>
+								
+								<a class="btn btn-warning btn-xs"
+								th:href="@{/savePlato/{id}(id=${plato.id})}">Modificar</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

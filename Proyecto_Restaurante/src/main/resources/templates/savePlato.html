@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Platos</title>
+<link th:rel="stylesheet" th:href="@{/dist/css/bootstrap.min.css}"/>
+
+</head>
+<body>
+	<div class="container">
+	<h2>Nuevo Plato</h2>
+		<form action="#" th:action="@{/savePlato}" th:object="${plato}" method="post">
+			<div class="form-group">
+				<label for="nombre">Nombre</label>
+				<input type="text" class="form-control" id="nombre" th:field="*{nombre}" 
+				name="nombre" placeholder="Nombre" required></input>
+			</div>
+			<input type="hidden" th:field="*{id}" name="id" id="id"/>
+			<div class="form-group">
+				<label for="descripcion">Descripción</label>
+				<input type="text" class="form-control" id="descripcion" th:field="*{descripcion}"
+				name="descripcion" placeholder="Descripción" required></input>
+			</div>
+			<!-- AGREGAR IMAGEN CON ELECCION DE ARCHIVO -->
+			<script>
+				var mostrarValorFoto = function(x) {           
+					var filename = document.getElementById('file').files[0].name;
+					var x = document.getElementById('valorfoto').value = filename;
+				}	
+			</script>
+		
+		<div class="form-group">
+
+		<label for="file" class="btn btn-primary">Selecciona imagen</label>
+		<input type="file" name="file" id="file" accept=".jpg,.jpeg,.png" 
+		 onChange="mostrarValorFoto(this.value);" style="display: none"></input>
+
+			<div class="form-group">	
+				<input type="text" class="form-control" name="valorfoto" id="valorfoto" th:field="*{foto}" readonly></input>
+			</div>
+			</div>
+
+			<!--NIVEL CON SELECTOR -->
+			<script>
+				var mostrarValorNiv = function(x) {           
+				     document.getElementById('cantidadniv').value=x;
+				}			
+			</script>
+				
+				<div class="form-group">
+					<label for="nivel">Nivel</label>
+					<select name="sel_cantidadniv" id="sel_cantidadniv"
+					onChange="mostrarValorNiv(this.value);">
+        				<option value="1">Muy fácil</option>
+        				<option value="2">Fácil</option>
+        				<option value="3">Intermedio</option>
+        				<option value="4">Moderado</option>
+        				<option value="5">Muy difícil</option>
+      				</select>
+      				<input type="text" name="cantidadniv" id="cantidadniv"
+      				class="form-control" th:field="*{nivel}"  readonly/>
+				</div>
+			<!-- FIN NIVEL CON SELECTOR	-->
+			
+			<div class="form-group">
+				<label for="precio">Precio</label>
+				<input type="text" class="form-control" id="precio" th:field="*{precio}"
+				name="precio" placeholder="Precio" required></input>
+			</div>
+			
+			<!--CATEGORÍA CON SELECTOR -->
+			<script>
+				var mostrarValorCat = function(x) {           
+				     document.getElementById('cantidadcat').value=x;
+				}			
+			</script>
+				
+				<div class="form-group">
+					<label for="categoria">Categoría</label>
+					<select name="sel_cantidadcat" id="sel_cantidadcat"
+					onChange="mostrarValorCat(this.value);">
+        				<option value="1">Desayuno</option>
+        				<option value="2">Comida</option>
+        				<option value="3">Merienda</option>
+        				<option value="4">Cena</option>
+      				</select>
+      				<input type="text" name="cantidadcat" id="cantidadcat"
+      				class="form-control" th:field="*{categoria}" readonly/>
+				</div>
+			<!-- FIN CATEGORIA CON SELECTOR	-->
+			<button type="submit" class="btn btn-success">Guardar</button>
+			<a th:href="@{../plato}" class="btn btn-primary my-2">Volver</a>
+		</form>
+	</div>
+
+</body>
+</html>
