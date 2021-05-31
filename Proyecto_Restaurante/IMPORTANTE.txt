@@ -1,1 +1,0 @@
-Si descargas estre proyecto tienes que poner un punto a la carpeta settings asi .settings
