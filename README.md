@@ -1,6 +1,8 @@
 # Prácticas-Empresa
-Prácticas en empresa con contrato de formación
+Prácticas en empresa - Contrato de formación
 
-Realización de un sitio web con SpringBoot.
+Creación de un sitio web con SpringBoot.
+CRUD.
+Carta de Platos.
 
 IDE utilizado -> Eclipse
